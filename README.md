@@ -97,3 +97,120 @@ If the client exceeds 100 requests per minute, the API responds with:
    ```bash
    npm start
    ```
+## URL Validation Check
+Response for a invalid url is given as follows:
+![image](https://github.com/user-attachments/assets/9022ce45-6ba3-460f-916f-5bfc9b4aa9c1)
+
+# **Unit Testing Documentation**
+
+### **Overview**
+The unit tests for the URL Shortener API are written using Jest and Supertest. They test the core functionality of the API endpoints to ensure that the application behaves as expected.
+
+### **Test Files**
+The test files are located in the `src/tests` directory.
+
+### **Test Suite**
+The test suite uses **Jest** for the test runner and **Supertest** to make HTTP requests to the API.
+
+### **Test Scenarios**
+
+1. **POST `/shorten`** - Tests the URL shortening functionality.
+   - **Test 1**: Ensure the API returns a valid shortened URL when a valid URL is provided.
+   - **Test 2**: Ensure the API returns a `400` error if the provided URL is invalid.
+
+2. **GET `/:shortId`** - Tests the redirection functionality.
+   - **Test 1**: Ensure that the short URL redirects to the original URL.
+
+3. **GET `/stats/:shortId`** - Tests the retrieval of usage statistics.
+   - **Test 1**: Ensure the API returns the correct usage statistics for a given short URL.
+
+### **Running the Tests**
+
+1. **Install Dependencies**: Make sure you have all the required dependencies installed:
+
+    ```bash
+    npm install
+    ```
+
+2. **Run the Tests**: Use the following command to run the tests:
+
+    ```bash
+    npm test
+    ```
+
+### **Sample Test Output**
+When the tests pass, you should see an output similar to this:
+```bash
+PASS  src/tests/urlController.test.js
+  POST /shorten
+    ✓ should return a shortened URL (50 ms)
+    ✓ should return 400 if URL is invalid (30 ms)
+  GET /:shortId
+    ✓ should redirect to the original URL (40 ms)
+  GET /stats/:shortId
+    ✓ should return URL statistics (35 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.4s
+```
+
+---
+
+## **Docker Setup**
+
+### **Overview**
+Dockerizing the URL Shortener API allows you to run the application in an isolated container environment. This is useful for ensuring the app runs consistently across different environments.
+
+### **Prerequisites**
+Make sure you have Docker installed on your system. You can install it from [here](https://www.docker.com/get-started).
+
+### **Steps to Dockerize the URL Shortener API**
+
+1. **Create a `Dockerfile`**
+   In the root directory of your project, create a file named `Dockerfile`:
+
+    ```Dockerfile
+    FROM node:16
+
+    WORKDIR /app
+
+    COPY package*.json ./
+
+    RUN npm install
+    
+    COPY . .
+    
+    EXPOSE 3000
+    
+    CMD ["npm", "start"]
+    ```
+
+2. **Create a `.dockerignore` File**
+   To avoid copying unnecessary files into the Docker image, create a `.dockerignore` file with the following content:
+
+    ```txt
+    node_modules
+    npm-debug.log
+    ```
+
+3. **Build the Docker Image**
+
+    Once your Dockerfile is ready, you can build the Docker image with the following command:
+
+    ```bash
+    docker build -t url-shortener-api .
+    ```
+
+4. **Run the Docker Container**
+
+    After the image is built, you can run the container:
+
+    ```bash
+    docker run -p 5000:5000 url-shortener-api
+    ```
+
+    The application should now be running on `http://localhost:5000` inside the Docker container.
+
+---

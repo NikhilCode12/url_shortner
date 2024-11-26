@@ -1,6 +1,5 @@
 # URL Shortener API 
 [Postman Documentation Link](https://web.postman.co/workspace/1df59fe9-cafa-4c07-8f65-d125e6cb3142/documentation/30132855-509bdaa1-c39b-41da-8cc4-82b5f5b82cd6)
-[Docker Image Repo](https://hub.docker.com/r/nikhilcode12/url_shortener)
 
 This is a simple URL shortener API that allows users to:
 - Shorten a URL.
@@ -163,6 +162,7 @@ Time:        0.4s
 
 ### **Overview**
 Dockerizing the URL Shortener API allows you to run the application in an isolated container environment. This is useful for ensuring the app runs consistently across different environments.
+[Docker Image Repo](https://hub.docker.com/r/nikhilcode12/url_shortener)
 
 ### **Prerequisites**
 Make sure you have Docker installed on your system. You can install it from [here](https://www.docker.com/get-started).

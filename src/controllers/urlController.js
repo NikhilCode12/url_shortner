@@ -4,8 +4,14 @@ import shortid from "shortid";
 const shortenUrl = async (req, res) => {
   const { originalUrl } = req.body;
 
+  const validUrlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+
+  if (!validUrlPattern.test(originalUrl)) {
+    return res.status(400).json({ message: "Invalid URL format!" });
+  }
+
   if (!originalUrl) {
-    return res.status(400).json({ message: "Valid URL is required" });
+    return res.status(400).json({ message: "URL is required" });
   }
 
   try {

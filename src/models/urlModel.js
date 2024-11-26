@@ -25,6 +25,8 @@ const urlSchema = new mongoose.Schema(
   }
 );
 
+urlSchema.index({ shortId: 1 });
+
 const Url = mongoose.model("Url", urlSchema);
 
 export default Url;

@@ -1,5 +1,6 @@
 # URL Shortener API 
 [Postman Documentation Link](https://web.postman.co/workspace/1df59fe9-cafa-4c07-8f65-d125e6cb3142/documentation/30132855-509bdaa1-c39b-41da-8cc4-82b5f5b82cd6)
+[Docker Image Repo](https://hub.docker.com/r/nikhilcode12/url_shortener)
 
 This is a simple URL shortener API that allows users to:
 - Shorten a URL.

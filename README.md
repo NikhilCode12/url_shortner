@@ -11,6 +11,8 @@ The API is built with Node.js, Express, and MongoDB.
 ## Deployment
 The API is deployed at: [https://url-shortener-api-zw6x.onrender.com](https://url-shortener-api-zw6x.onrender.com)
 
+---
+
 ## API Endpoints
 
 ### 1. Shorten a URL
@@ -60,6 +62,7 @@ If the client exceeds 100 requests per minute, the API responds with:
     "message": "Too many requests, please try again later."
 }
 ```
+---
 
 ## **Deployment Instructions**
 
@@ -101,7 +104,9 @@ If the client exceeds 100 requests per minute, the API responds with:
 Response for a invalid url is given as follows:
 ![image](https://github.com/user-attachments/assets/9022ce45-6ba3-460f-916f-5bfc9b4aa9c1)
 
-# **Unit Testing Documentation**
+---
+
+# **Unit Testing**
 
 ### **Overview**
 The unit tests for the URL Shortener API are written using Jest and Supertest. They test the core functionality of the API endpoints to ensure that the application behaves as expected.
@@ -158,11 +163,11 @@ Time:        0.4s
 
 ---
 
-## **Docker Setup**
+## **Docker Setup** 
+[Docker Image Repo](https://hub.docker.com/r/nikhilcode12/url_shortener)
 
 ### **Overview**
 Dockerizing the URL Shortener API allows you to run the application in an isolated container environment. This is useful for ensuring the app runs consistently across different environments.
-[Docker Image Repo](https://hub.docker.com/r/nikhilcode12/url_shortener)
 
 ### **Prerequisites**
 Make sure you have Docker installed on your system. You can install it from [here](https://www.docker.com/get-started).
@@ -215,3 +220,11 @@ Make sure you have Docker installed on your system. You can install it from [her
     The application should now be running on `http://localhost:5000` inside the Docker container.
 
 ---
+
+## Conclusion
+Containerized Docker Application of our node image successfully deployed on hub,
+```bash
+docker-compose up --build
+```
+results in:
+![image](https://github.com/user-attachments/assets/994a721b-c377-4017-a97e-7ae60f448642)
